@@ -1,0 +1,21 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /home/ubuntu/cicd-practice
+hooks:
+  BeforeInstall:
+    - location: scripts/before.sh
+      runas: root
+  AfterInstall:
+    - location: scripts/after.sh
+      timeout: 180
+      runas: root
+  ApplicationStart:
+    - location: scripts/appstart.sh
+      timeout: 3600
+      runas: root
+  ValidateService:
+    - location: scripts/monitorservice.sh
+      timeout: 3600
+      runas: root
