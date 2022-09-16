@@ -1,4 +1,4 @@
 apt update
 
-apt install nodejs
+apt install nodejs -y
 
